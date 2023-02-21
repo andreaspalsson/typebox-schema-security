@@ -37,5 +37,23 @@ const route: FastifyPluginAsyncTypebox = async (server) => {
       return { foo, bar };
     }
   );
+
+  server.post(
+    "/double-security",
+    {
+      schema: {
+        body: Type.Object({
+          foo: Type.Number(),
+          bar: Type.String(),
+        }),
+        security: [{ apiKey: [] }, { authHeader: [] }],
+      },
+    },
+    (request, reply) => {
+      const { foo, bar } = request.body; // type unknown
+
+      return { foo, bar };
+    }
+  );
 };
 export default route;
