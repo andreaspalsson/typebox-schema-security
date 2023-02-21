@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+
+  "compilerOptions": {
+    "target": "ES2022",
+    "strict": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "preserveConstEnums": true,
+    "useUnknownInCatchVariables": false,
+    "typeRoots": ["./node_modules/@types", "./typings"],
+    "outDir": "./build"
+  }
+}
